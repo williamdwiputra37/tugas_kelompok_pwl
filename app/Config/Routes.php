@@ -38,6 +38,7 @@ $routes->get('/auth/login', 'Auth::login');
 $routes->get('/auth/register', 'Auth::register');
 $routes->get('/admin', 'Admin::index', ['filter' => ['authGuard','adminGuard']]);
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
+$routes->get('/error-permission', 'ErrorPermission::index');
 
 /*
  * --------------------------------------------------------------------

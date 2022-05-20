@@ -10,7 +10,7 @@ class AdminGuard implements FilterInterface {
     public function before(RequestInterface $request, $arguments = null) 
     {
         if(session()->get('role') != 'admin') {
-            return redirect()->to('dashboard');
+            return redirect()->to('error-permission');
         }
     }
 
