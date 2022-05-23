@@ -40,10 +40,10 @@ $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
 $routes->get('/error-permission', 'ErrorPermission::index');
 
 $routes->group('admin', ['filter' => ['authGuard','adminGuard']], function ($routes) {    
-    $routes->get('dashboard', 'Admin::index');
+    $routes->get('', 'Admin::index');
     $routes->get('books', 'Admin::books');
     $routes->group('categories', function ($routes) {
-        $routes->get('list', 'Categories::index');
+        $routes->get('', 'Categories::index');
         $routes->get('create', 'Categories::create');
         $routes->get('edit/(:any)', 'Categories::edit/$1');
         $routes->get('delete/(:any)', 'Categories::delete_category/$1');

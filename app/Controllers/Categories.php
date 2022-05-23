@@ -68,7 +68,7 @@ class Categories extends BaseController
             ];
             $categoryModel->save($data);
             $session->setFlashdata('msg', 'Category created successfully!');
-            return redirect()->to('/admin/categories/list');
+            return redirect()->to('/admin/categories');
         } else {
             $session->setFlashdata('msg', 'Something wrong!');
             return redirect()->to('/admin/categories/create');
@@ -92,7 +92,7 @@ class Categories extends BaseController
             ];
             $categoryModel->update($id, $data);
             $session->setFlashdata('msg', 'Category updated successfully!');
-            return redirect()->to('/admin/categories/list');
+            return redirect()->to('/admin/categories');
         } else {
             $session->setFlashdata('msg', 'Something wrong!');
             return redirect()->to('/admin/categories/edit/' . $this->request->getVar('id'));
@@ -107,6 +107,6 @@ class Categories extends BaseController
         $categoryModel->delete($id);
 
         $session->setFlashdata('msg', 'Category deleted successfully!');
-        return redirect()->to('/admin/categories/list');
+        return redirect()->to('/admin/categories');
     }
 }
