@@ -40,17 +40,17 @@ $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
 $routes->get('/error-permission', 'ErrorPermission::index');
 
 $routes->group('admin', ['filter' => ['authGuard','adminGuard']], function ($routes) {    
-    $routes->get('/', 'Admin::index');
-    $routes->get('/books', 'Admin::books');
+    $routes->get('dashboard', 'Admin::index');
+    $routes->get('books', 'Admin::books');
     $routes->group('categories', function ($routes) {
-        $routes->get('/', 'Categories::index');
-        $routes->post('/create', 'Categories::create');
+        $routes->get('list', 'Categories::index');
+        $routes->get('create', 'Categories::create');
+        $routes->get('edit/(:any)', 'Categories::edit/$1');
+        $routes->get('delete/(:any)', 'Categories::delete_category/$1');
+        $routes->post('save_category', 'Categories::save_category');
+        $routes->post('update_category', 'Categories::update_category');
     });
 });
-
-// $routes->group('admin', ['filter' => ['authGuard','adminGuard']], function($routes)) {
-//     $routes->get('/', 'Admin::index');
-// }
 
 /*
  * --------------------------------------------------------------------

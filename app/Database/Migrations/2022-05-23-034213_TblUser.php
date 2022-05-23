@@ -38,7 +38,7 @@ class TblUser extends Migration
                 'type' => 'ENUM("admin", "user")',
             ],
         ]);
-        $this->forge->addKey('user_id', true);
+        $this->forge->addPrimaryKey('user_id', true);
         $this->forge->createTable('tbl_user');
     }
 

@@ -24,7 +24,7 @@ class TblBookCategory extends Migration
                 'constraint' => 11,
             ],
         ]);
-        $this->forge->addKey('id_book_category', true);
+        $this->forge->addPrimaryKey('id_book_category', true);
         $this->forge->addForeignKey('id_book', 'tbl_book', 'id_book', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('id_category', 'tbl_category', 'id_category', 'CASCADE', 'CASCADE');
         $this->forge->createTable('tbl_book_category');

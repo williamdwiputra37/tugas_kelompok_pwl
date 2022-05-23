@@ -20,7 +20,7 @@ class TblCategory extends Migration
                 'constraint' => '255',
             ],
         ]);
-        $this->forge->addKey('id_category', true);
+        $this->forge->addPrimaryKey('id_category', true);
         $this->forge->createTable('tbl_category');
     }
 

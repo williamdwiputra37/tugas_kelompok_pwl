@@ -35,7 +35,7 @@ class TblBook extends Migration
                 'constaint' => 11,
             ]
         ]);
-        $this->forge->addKey('id_book', true);
+        $this->forge->addPrimaryKey('id_book', true);
         $this->forge->createTable('tbl_book');
     }
 

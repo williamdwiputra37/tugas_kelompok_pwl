@@ -72,7 +72,7 @@ class Auth extends BaseController
                 ];
                 $session->set($ses_data);
                 if($data['role'] == 'admin') {
-                    return redirect()->to('/admin');
+                    return redirect()->to('/admin/dashboard');
                 } else {
                     return redirect()->to('/dashboard');
                 }
