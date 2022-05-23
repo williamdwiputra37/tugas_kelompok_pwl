@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Admin extends BaseController
+class Categories extends BaseController
 {
     public function __construct()
     {
@@ -12,21 +12,21 @@ class Admin extends BaseController
     
     public function index()
     {
-        $header['title'] = 'Dashboard';
+        $header['title'] = 'categories';
         echo view('components/header', $header);
         echo view('components/top_menu');
         echo view('components/side_menu');
-        echo view('admin/dashboard');
+        echo view('admin/categories');
         echo view('components/footer');
     }
 
-    public function books()
+    public function create()
     {
-        $header['title'] = 'books';
+        $header['title'] = 'create';
         echo view('components/header', $header);
         echo view('components/top_menu');
         echo view('components/side_menu');
-        echo view('admin/books');
+        echo view('admin/categories_create');
         echo view('components/footer');
     }
 }

@@ -34,11 +34,23 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 // Custom Routes
-$routes->get('/auth/login', 'Auth::login');
-$routes->get('/auth/register', 'Auth::register');
-$routes->get('/admin', 'Admin::index', ['filter' => ['authGuard','adminGuard']]);
+$routes->post('/auth/login', 'Auth::login');
+$routes->post('/auth/register', 'Auth::register');
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
 $routes->get('/error-permission', 'ErrorPermission::index');
+
+$routes->group('admin', ['filter' => ['authGuard','adminGuard']], function ($routes) {    
+    $routes->get('/', 'Admin::index');
+    $routes->get('/books', 'Admin::books');
+    $routes->group('categories', function ($routes) {
+        $routes->get('/', 'Categories::index');
+        $routes->post('/create', 'Categories::create');
+    });
+});
+
+// $routes->group('admin', ['filter' => ['authGuard','adminGuard']], function($routes)) {
+//     $routes->get('/', 'Admin::index');
+// }
 
 /*
  * --------------------------------------------------------------------
