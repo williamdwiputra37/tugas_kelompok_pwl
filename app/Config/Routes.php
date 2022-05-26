@@ -41,7 +41,10 @@ $routes->get('/error-permission', 'ErrorPermission::index');
 
 $routes->group('admin', ['filter' => ['authGuard','adminGuard']], function ($routes) {    
     $routes->get('', 'Admin::index');
-    $routes->get('books', 'Admin::books');
+    $routes->group('books', function ($routes) {
+        $routes->get('', 'Books::index');
+        $routes->get('create', 'Books::create');
+    });
     $routes->group('categories', function ($routes) {
         $routes->get('', 'Categories::index');
         $routes->get('create', 'Categories::create');

@@ -53,11 +53,11 @@
                                             <td><?= $row['id_category']; ?></td>
                                             <td><?= $row['name']; ?></td>
                                             <td>
-                                                <a href="<?= base_url('admin/categories/edit/'.$row['id_category']) ?>">
-                                                    <i class="nav-icon fas fa-edit text-black"></i>
+                                                <a href="<?= base_url('admin/categories/edit/' . $row['id_category']) ?>">
+                                                    <button type="button" class="btn btn-warning">Edit</button>
                                                 </a>
-                                                <a href="<?= base_url('admin/categories/delete/'.$row['id_category']) ?>">
-                                                    <i class="nav-icon fas fa-trash text-black"></i>
+                                                <a href="<?= base_url('admin/categories/delete/' . $row['id_category']) ?>">
+                                                    <button type="button" class="btn btn-danger">Delete</button>
                                                 </a>
                                             </td>
                                         </tr>
