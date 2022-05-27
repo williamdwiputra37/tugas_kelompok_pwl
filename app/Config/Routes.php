@@ -44,6 +44,7 @@ $routes->group('admin', ['filter' => ['authGuard','adminGuard']], function ($rou
     $routes->group('books', function ($routes) {
         $routes->get('', 'Books::index');
         $routes->get('create', 'Books::create');
+        $routes->post('save_book', 'Books::save_book');
     });
     $routes->group('categories', function ($routes) {
         $routes->get('', 'Categories::index');
