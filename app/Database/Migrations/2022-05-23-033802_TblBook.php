@@ -9,11 +9,10 @@ class TblBook extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id_book' => [
-                'type' => 'INT',
-                'constraint' => 11,
+            'isbn' => [
+                'type' => 'VARCHAR',
+                'constraint' => '50',
                 'unsigned' => true,
-                'auto_increment' => true,
             ],
             'title' => [
                 'type' => 'VARCHAR',

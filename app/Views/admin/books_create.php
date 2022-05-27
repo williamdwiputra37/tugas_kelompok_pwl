@@ -30,6 +30,10 @@
                 <form action="<?php echo base_url(); ?>/admin/books/save_book" method="post" enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="form-group">
+                            <label>ISBN</label>
+                            <input type="text" class="form-control" id="name_category" name="isbn" placeholder="Judul Buku">
+                        </div>
+                        <div class="form-group">
                             <label>Title</label>
                             <input type="text" class="form-control" id="name_category" name="title" placeholder="Judul Buku">
                         </div>
@@ -45,6 +49,14 @@
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="custom-select" name="category[]" data-live-search="true" multiple>
+                                <?php foreach ($categories as $category) : ?>
+                                    <option value="<?= $category['id_category'] ?>"><?= $category['name'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Price</label>

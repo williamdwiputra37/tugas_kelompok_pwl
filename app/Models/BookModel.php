@@ -10,6 +10,7 @@ class BookModel extends Model
     protected $primaryKey = 'id_book';
 
     protected $allowedFields = [
+        'isbn',
         'title',
         'description',
         'cover',

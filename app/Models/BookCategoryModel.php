@@ -10,7 +10,7 @@ class BookCategoryModel extends Model
     protected $primaryKey       = 'id_book_category';
     
     protected $allowedFields    = [
-        'id_book',
+        'isbn',
         'id_category'
     ];
 }

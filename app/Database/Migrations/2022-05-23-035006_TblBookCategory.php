@@ -15,9 +15,9 @@ class TblBookCategory extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'id_book' => [
-                'type' => 'INT',
-                'constraint' => 11,
+            'isbn' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
             ],
             'id_category' => [
                 'type' => 'INT',
@@ -25,7 +25,7 @@ class TblBookCategory extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id_book_category', true);
-        $this->forge->addForeignKey('id_book', 'tbl_book', 'id_book', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('isbn', 'tbl_book', 'isbn', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('id_category', 'tbl_category', 'id_category', 'CASCADE', 'CASCADE');
         $this->forge->createTable('tbl_book_category');
     }
