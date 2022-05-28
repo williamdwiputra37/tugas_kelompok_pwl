@@ -13,11 +13,15 @@ class Books extends BaseController {
 
     public function index()
     {
+        $booksModel = new BookModel();
+        $data['books'] = $booksModel->findAll();
+        $data['categories'] = $booksModel->getCategories();
+
         $header['title'] = 'categories';
         echo view('components/header', $header);
         echo view('components/top_menu');
         echo view('components/side_menu');
-        echo view('admin/books');
+        echo view('admin/books', $data);
         echo view('components/footer');
     }
 
@@ -62,9 +66,6 @@ class Books extends BaseController {
                 'price' => $this->request->getVar('price'),
                 'quantity' => $this->request->getVar('quantity'),
             ];
-
-            
-            
 
             $img->move('uploads/covers', $coverName);
 

@@ -17,4 +17,14 @@ class BookModel extends Model
         'price',
         'quantity',
     ];
+
+    public function getCategories()
+    {
+        $builder = $this->db->table('tbl_book');
+        $builder->join('tbl_book_category', 'tbl_book.isbn = tbl_book_category.isbn');
+        $builder->join('tbl_category', 'tbl_book_category.id_category = tbl_category.id_category');
+        $builder->select('tbl_category.name');
+        $query = $builder->get();
+        return $query->getResult();
+    }
 }

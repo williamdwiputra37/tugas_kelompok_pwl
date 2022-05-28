@@ -40,21 +40,33 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>ISBN</th>
                                         <th>Judul</th>
                                         <th>Deskripsi</th>
                                         <th>Cover</th>
                                         <th>Harga</th>
                                         <th>Stock</th>
+                                        <th>Category</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Trident</td>
-                                        <td>Internet
-                                            Explorer 4.0
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    foreach ($books as $row) {
+                                    ?>
+                                        <tr>
+                                            <td><?= $row['isbn']; ?></td>
+                                            <td><?= $row['title']; ?></td>
+                                            <td><?= $row['description']; ?></td>
+                                            <td><img src="<?= base_url();?>/uploads/covers/<?= $row['cover'] ?>" alt="" class="img-thumbnail"/></td>
+                                            <td>Rp. <?= $row['price']; ?></td>
+                                            <td><?= $row['quantity']; ?></td>
+                                            <td><?php foreach($categories as $key => $value) : ?> 
+                                                <?= $value->name ?>,
+                                                <?php endforeach ?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
                                     <!-- <tr>
                                         <td>Trident</td>
                                         <td>Internet
@@ -69,7 +81,7 @@
                                     </tr> -->
                                 </tbody>
                             </table>
-                            
+
                         </div>
                         <!-- /.card-body -->
                     </div>
