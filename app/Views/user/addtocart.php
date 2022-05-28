@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
 
     <section class="content">
 

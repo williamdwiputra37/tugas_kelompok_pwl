@@ -42,7 +42,7 @@
                     <tr>
                       <th>ISBN</th>
                       <th>Judul</th>
-                      <th>Deskripsi</th>
+                      <th>Deskripsi</th> 
                       <th>Cover</th>
                       <th>Harga</th>
                       <th>Stock</th>
