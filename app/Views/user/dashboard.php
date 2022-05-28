@@ -10,7 +10,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item active">List Buku</li>
             </ol>
           </div>
         </div>
@@ -30,6 +30,11 @@
             <?php endif; ?>
 
             <div class="card">
+              <div class="card-header">
+                <td>
+                  <!-- <a href="#><button type="button" class="btn btn-success">Add to Chart</button></a> -->
+                </td>
+                </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
@@ -42,6 +47,7 @@
                       <th>Harga</th>
                       <th>Stock</th>
                       <th>Category</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -58,6 +64,7 @@
                         <td><?php foreach ($categories as $key => $value) : ?>
                             <?= $value->name ?>,
                           <?php endforeach ?></td>
+                          <td><a href="#><button type="button" class="btn btn-warning">Add to Cart</button></a></td>
                       </tr>
                     <?php
                     }
