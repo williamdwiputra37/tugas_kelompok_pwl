@@ -17,35 +17,74 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
     <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <?php if (session()->getFlashdata('msg')) : ?>
+              <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h5><i class="icon fas fa-check"></i> Success!</h5>
+                <?= session()->getFlashdata('msg') ?>
+              </div>
+            <?php endif; ?>
 
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Title</h3>
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>ISBN</th>
+                      <th>Judul</th>
+                      <th>Deskripsi</th>
+                      <th>Cover</th>
+                      <th>Harga</th>
+                      <th>Stock</th>
+                      <th>Category</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                    foreach ($books as $row) {
+                    ?>
+                      <tr>
+                        <td><?= $row['isbn']; ?></td>
+                        <td><?= $row['title']; ?></td>
+                        <td><?= $row['description']; ?></td>
+                        <td><img src="<?= base_url(); ?>/uploads/covers/<?= $row['cover'] ?>" alt="" class="img-thumbnail" /></td>
+                        <td>Rp. <?= $row['price']; ?></td>
+                        <td><?= $row['quantity']; ?></td>
+                        <td><?php foreach ($categories as $key => $value) : ?>
+                            <?= $value->name ?>,
+                          <?php endforeach ?></td>
+                      </tr>
+                    <?php
+                    }
+                    ?>
+                    <!-- <tr>
+                                        <td>Trident</td>
+                                        <td>Internet
+                                            Explorer 4.0
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trident</td>
+                                        <td>Internet
+                                            Explorer 5.0
+                                        </td>
+                                    </tr> -->
+                  </tbody>
+                </table>
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
+              </div>
+              <!-- /.card-body -->
+            </div>
           </div>
         </div>
-        <div class="card-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
+        <!-- /.row -->
       </div>
-      <!-- /.card -->
-
+      <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
